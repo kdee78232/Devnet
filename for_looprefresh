@@ -1,0 +1,9 @@
+import csv
+with open('routerlist.csv') as data:
+    csvlist=csv.reader(data)
+
+    for row in csvlist:
+        device=row[0]
+        location=row[2]
+        ip = row[1]
+        print(f"{device} is in {location.rstrip()} and ip is {ip}")
