@@ -2,4 +2,18 @@
 curl https://www.deckofcardsapi.com/api/deck/new/ | python3 -m json.tool
 curl https://www.deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1 | python3 -m json.tool
 curl https://www.deckofcardsapi.com/api/deck/<<deck_id>>/draw/?count=2  | python3 -m json.tool
+curl https://www.boredapi.com/api/activity/?type=social | python3 -m json.tool
+# get the protocol info for api call
+curl -i https://www.boredapi.com/api/activity
+HTTP/1.1 200 OK
+Server: Cowboy
+Connection: keep-alive
+X-Powered-By: Express
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept
+Content-Type: application/json; charset=utf-8
+Content-Length: 155
+Etag: W/"9b-2qtIT+CbaAfPwN/SIhZa8Fg8MEY"
+Date: Mon, 09 May 2022 12:39:42 GMT
+Via: 1.1 vegur
 
