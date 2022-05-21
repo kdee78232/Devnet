@@ -1,0 +1,132 @@
+curl -sD - https://postman-echo.com/get/?test123
+HTTP/2 200 
+date: Mon, 09 May 2022 23:38:47 GMT
+content-type: application/json; charset=utf-8
+content-length: 263
+etag: W/"107-1Y13LTWOFRJpHgEjZUCPMrvfTvA"
+vary: Accept-Encoding
+set-cookie: sails.sid=s%3AeD_fiM01DmzLAJnUgzHDajy0brF-Egpx.qgkD5JiaTe8lmay72OxZchpoY59lXkFRijav06H%2Fb3k; Path=/; HttpOnly
+
+{"args":{"test123":""},"headers":{"x-forwarded-proto":"https","x-forwarded-port":"443","host":"postman-echo.com","x-amzn-trace-id":"Root=1-6279a607-09104bc51bdaae28142c7981","user-agent":"curl/7.74.0","accept":"*/*"},"url":"https://postman-echo.com/get/?test123"}kdurham@IdeaPad:~/src/git-intro$ 
+
+#small s is for silent mode to not see transfer bar
+#capital D is used to dump header information  into command line
+# - dash to send header to command line
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+curl -s -X  POST https://postman-echo.com/post -H 'cache-contro
+l: no-cache' -H 'conetent-type: text/plain' -d 'hello devnet' | python3 -m json.tool
+{
+    "args": {},
+    "data": "",
+    "files": {},
+    "form": {
+        "hello devnet": ""
+    },
+    "headers": {
+        "x-forwarded-proto": "https",
+        "x-forwarded-port": "443",
+        "host": "postman-echo.com",
+        "x-amzn-trace-id": "Root=1-6279a4e4-0ee8ca87047129605ff316ec",
+        "content-length": "12",
+        "user-agent": "curl/7.74.0",
+        "accept": "*/*",
+        "cache-control": "no-cache",
+        "conetent-type": "text/plain",
+        "content-type": "application/x-www-form-urlencoded"
+    },
+    "json": {
+        "hello devnet": ""
+    },
+    "url": "https://postman-echo.com/post"
+}
+
+
+
+# small s is for silent mode to not see transfer bar 
+# - X is command telling method going to use
+#POST is the method used
+#-H is Headers
+
+
+
+
+
+
+
+
+
+curl -v  -sD - https://postman-echo.com/get/?test123
+*   Trying 3.222.255.96:443...
+* Connected to postman-echo.com (3.222.255.96) port 443 (#0)
+* ALPN, offering h2
+* ALPN, offering http/1.1
+* successfully set certificate verify locations:
+*  CAfile: /etc/ssl/certs/ca-certificates.crt
+*  CApath: /etc/ssl/certs
+* TLSv1.3 (OUT), TLS handshake, Client hello (1):
+* TLSv1.3 (IN), TLS handshake, Server hello (2):
+* TLSv1.2 (IN), TLS handshake, Certificate (11):
+* TLSv1.2 (IN), TLS handshake, Server key exchange (12):
+* TLSv1.2 (IN), TLS handshake, Server finished (14):
+* TLSv1.2 (OUT), TLS handshake, Client key exchange (16):
+* TLSv1.2 (OUT), TLS change cipher, Change cipher spec (1):
+* TLSv1.2 (OUT), TLS handshake, Finished (20):
+* TLSv1.2 (IN), TLS handshake, Finished (20):
+* SSL connection using TLSv1.2 / ECDHE-RSA-AES128-GCM-SHA256
+* ALPN, server accepted to use h2
+* Server certificate:
+*  subject: CN=postman-echo.com
+*  start date: Mar 10 00:00:00 2022 GMT
+*  expire date: Apr  8 23:59:59 2023 GMT
+*  subjectAltName: host "postman-echo.com" matched cert's "postman-echo.com"
+*  issuer: C=US; O=Amazon; OU=Server CA 1B; CN=Amazon
+*  SSL certificate verify ok.
+* Using HTTP2, server supports multi-use
+* Connection state changed (HTTP/2 confirmed)
+* Copying HTTP/2 data in stream buffer to connection buffer after upgrade: len=0
+* Using Stream ID: 1 (easy handle 0x55a0bc22d5e0)
+> GET /get/?test123 HTTP/2
+> Host: postman-echo.com
+> user-agent: curl/7.74.0
+> accept: */*
+> 
+* Connection state changed (MAX_CONCURRENT_STREAMS == 128)!
+< HTTP/2 200 
+HTTP/2 200 
+< date: Mon, 09 May 2022 23:47:38 GMT
+date: Mon, 09 May 2022 23:47:38 GMT
+< content-type: application/json; charset=utf-8
+content-type: application/json; charset=utf-8
+< content-length: 263
+content-length: 263
+< etag: W/"107-n6FpR91zwnj+hLC3IHaERfZHhnc"
+etag: W/"107-n6FpR91zwnj+hLC3IHaERfZHhnc"
+< vary: Accept-Encoding
+vary: Accept-Encoding
+< set-cookie: sails.sid=s%3AnF8t0BUWGqS_p662901Yv3hiXO9c6p7p.dmKr5J4Us8tWbd6HgkNZ94nzWh48ECxNh8b7xx9WLZ0; Path=/; HttpOnly
+set-cookie: sails.sid=s%3AnF8t0BUWGqS_p662901Yv3hiXO9c6p7p.dmKr5J4Us8tWbd6HgkNZ94nzWh48ECxNh8b7xx9WLZ0; Path=/; HttpOnly
+
+< 
+* Connection #0 to host postman-echo.com left intact
+{"args":{"test123":""},"headers":{"x-forwarded-proto":"https","x-forwarded-port":"443","host":"postman-echo.com","x-amzn-trace-id":"Root=1-6279a81a-67dd9b03331e09a564d9c19e","user-agent":"curl/7.74.0","accept":"*/*"},"url":"https://postman-echo.com/get/?test123"}
+
+
+
+
+#v is for verbose mode show more info
