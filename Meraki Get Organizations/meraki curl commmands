@@ -1,0 +1,11 @@
+curl -X GET \
+--url 'https://n392.meraki.com/api/v0/organizations' \
+-H 'X-Cisco-Meraki-API-Key: 6bec40cf957de430a6f1f2baa056b99a4fac9ea0' \
+-H 'Accept: application/json'
+
+
+
+
+#another way to enter command
+
+ curl -X GET --url 'https://n392.meraki.com/api/v0/networks/L_566327653141843049/devices' -H 'X-Cisco-Meraki-API-Key: 6bec40cf957de430a6f1f2baa056b99a4fac9ea0' -H 'Accept:application/json'

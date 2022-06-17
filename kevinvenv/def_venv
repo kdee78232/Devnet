@@ -1,0 +1,24 @@
+class Router:
+    def __init__(self,model,ios,ip_add):
+        self.model= model
+        self.ios=ios 
+        self.ip_add= ip_add 
+    def getdesc(self):
+        desc=f'Router Model   :{self.model}\n'\
+             f'IOS            :{self.ios}\n'\
+             f'IP_Add         :{self.ip_add}'
+        return desc  
+
+class Switch(Router):
+    def getdesc(self):
+        desc= 'Switch Model   :{self.model}\n'\
+             f'IOS            :{self.ios}\n'\
+             f'IP_Add         :{self.ip_add}'
+        return desc  
+
+rtr1= Router('1921','15.9','192.168.10.2')
+sw1 = Switch('2960','15.2','192.168.20.4')
+
+print('RTR1\n', rtr1.getdesc() , '\n' , sep='')
+print('SW1\n', sw1.getdesc() , '\n' , sep='')
+

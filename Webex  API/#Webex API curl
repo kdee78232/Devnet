@@ -1,0 +1,90 @@
+#curl for Webex API
+#Send API requests using token in header
+#When making requests to the Webex REST API, 
+    #an Authentication HTTP header is used to identify the requesting user. 
+         #This header must include an access token. This access token may be a personal access token from this site 
+#Step 1: Finding the API documentation
+#Step 2: Figuring out authentication  REST APIs have various methods of authenticating calls. 
+    #To discover what kind of authentication a particular API uses, read the documentation for that API.
+#Step 3: Determining the endpoints
+        #An endpoint is the URI where you send an HTTP request. The path of an endpoints can include notable informatio
+        #An API provider can make an endpoint URI private and accessible only 
+           #through a VPN or can make it completely public on the Internet.
+           #xyz://username:password@example.com:456/path/data?key=value#fragid1
+#Step 4: Understanding REST API verbs
+    #These verbs represent a "CRUD" acronym - Create, Read, Update, and Delete.
+    #Many API documentation sites use color-coding for each verb. 
+    #For example, the Cisco Webex API uses green for GET, yellow for POST, blue for PUT, and red for DELETE.
+#Step 5: Understanding REST API parameters
+      #Parameters often provide details so that you can scope, filter, or clarify a request
+      #Pagination, or returning pages of data from a request, is sometimes implemented by using query parameters in the URI.
+      #REST API parameters can be used together on a request by using an ampersand (&) between two parameters. 
+      #Here's an example, requesting the first 20 entries with displayName that's "Anne":
+                #GET https://webexapis.com/v1/people?displayName=Anne&max=20
+
+#Step 6: Understanding REST API data formats
+     #earn if it supports JSON and XML as data formats. 
+     #POST, PUT, and PATCH requests typically include data requirements or optional parameters as part of the request.
+       #check the Content-Type header that's returned.
+#Step 7: REST API tool with examples
+  #cURL: Linux command line application.
+  #Postman: Chrome browser plugin and application.
+  #Python Requests: Python library for scripting.
+  #OpenAPI/Swagger: Dynamic API Documentation
+    #When using cURL to make REST API method calls, you typically use the following options and arguments:
+            #-X followed by a request verb such as GET, PUT, POST, PATCH, or DELETE.
+            #-H followed by a header such as a token to send with the requests.
+                #a GET request is often used to get a list or to get details about a single resource. 
+                #So to walk through an example, let's get information about the Webex to which you belong. 
+                #Looking at the API documentation, we need to:
+                #Choose the verb and the endpoint URI: GET https://webexapis.com/v1/teams.
+                #Configure the headers and authentication: 
+                    #Use a Bearer token that you can see on the Webex documentation page at https://developer.webex.com/docs/api/getting-started after you log in.
+                #Provide any required parameters or request data. In this case, there are none; 
+                #The "max" query parameter is optional. The request does not require any data.
+                #Send the request and verify the status.
+                               #The API should return 200 OK and a list of the teams for the bearer token user.
+                               #curl -X GET https://webexapis.com/v1/teams -H "Authorization:Bearer YjE2...e10f"
+
+
+                
+            
+
+
+
+
+
+
+
+
+
+
+
+
+export TOKEN="MTIyNGE4N2ItOGIxYi00MDZlLTlkZDMtMTYyYjNiMWVjMjU3MGYxYTZiOTgtOTk0_P0A1_19067333-4f7c-41dd-b259-806a3e94f2ac"      #add personal access token to enviromental variable
+curl -H "Authorization:Bearer $TOKEN" https://webexapis.com/v1/people/me | python3 -m json.tool    #run request command using Bearer token authentication
+
+{
+    "id": "Y2lzY29zcGFyazovL3VzL1BFT1BMRS84MjU0NGI4NS1hYmZkLTRjNWYtOTQ2Mi04YjBiYjBiOTZkNDA",
+    "emails": [
+        "kevindurham77@yahoo.com"
+    ],
+    "phoneNumbers": [],
+    "displayName": "Kevin Durham",
+    "nickName": "Kevin",
+    "firstName": "Kevin",
+    "lastName": "Durham",
+    "userName": "kevindurham77@yahoo.com",
+    "avatar": "https://avatar-prod-us-west-2.webexcontent.com/Avtr~V1~19067333-4f7c-41dd-b259-806a3e94f2ac/V1~486dd37971837ff4b590d13183bdae24e4d862473a5a57521ae5938ee2078f98~f9b057446a9149de9667c92d4cca2b24~1600",
+    "orgId": "Y2lzY29zcGFyazovL3VzL09SR0FOSVpBVElPTi8xOTA2NzMzMy00ZjdjLTQxZGQtYjI1OS04MDZhM2U5NGYyYWM",
+    "created": "2022-03-28T18:05:52.330Z",
+    "lastModified": "2022-05-13T18:40:37.645Z",
+    "lastActivity": "2022-05-22T20:38:01.495Z",
+    "status": "inactive",
+    "type": "person"
+}
+
+
+
+
+
